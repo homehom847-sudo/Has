@@ -25,3 +25,13 @@ firebase.initializeApp(firebaseConfig);
 // Shared handles used by app.js
 const auth = firebase.auth();
 const db = firebase.firestore();
+
+// Some mobile networks/carriers block Firestore's default
+// connection method, causing "client is offline" errors even
+// with a working internet connection. This makes Firestore
+// auto-detect and fall back to a connection method that works
+// almost everywhere.
+db.settings({
+  experimentalAutoDetectLongPolling: true,
+  merge: true
+});
