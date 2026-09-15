@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Weak Areas — SUSU JAMB PREP</title>
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="weak-bars.css">
+</head>
+<body data-page="home">
+<div class="app">
+
+  <div class="page-header">
+    <a class="back-btn" href="index.html" aria-label="Back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div>
+      <div class="page-title">Weak Areas</div>
+      <div class="page-subtitle">Improvement Tracking</div>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <div class="section-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#EF7B4F" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1.2" fill="#EF7B4F"/></svg>
+      Accuracy by Subject
+    </div>
+    <p style="font-size:13px;color:var(--navy-soft);margin-top:0;">Based on your last 200 practice questions. Focus your next sessions on the lowest bars.</p>
+    <div id="weakList"></div>
+  </div>
+
+  <div class="content-card">
+    <div class="section-title">Recommended next step</div>
+    <p id="recommendation" style="font-size:13.5px;font-weight:700;color:var(--navy);margin-top:0;"></p>
+    <a class="btn-primary" id="practiceLink" href="subject-practice.html">Practice this subject</a>
+  </div>
+
+</div>
+
+<nav class="bottom-nav">
+  <a class="nav-item" data-nav="home" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1V10"/></svg>
+    <span>Home</span>
+  </a>
+  <a class="nav-item" data-nav="analysis" href="analysis.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+    <span>Analysis</span>
+  </a>
+  <a class="nav-item" data-nav="chatbot" href="chatbot.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4"/><circle cx="9" cy="14" r="1.4" fill="currentColor" stroke="none"/><circle cx="15" cy="14" r="1.4" fill="currentColor" stroke="none"/><path d="M2 13v3M22 13v3"/></svg>
+    <span>Chatbot</span>
+  </a>
+  <a class="nav-item" data-nav="profile" href="profile.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg>
+    <span>Profile</span>
+  </a>
+</nav>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="app.js"></script>
+<script src="weak-areas.js"></script>
+</body>
+</html>

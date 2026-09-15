@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chemistry CBT — SUSU JAMB PREP</title>
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="chemistry-cbt.css">
+</head>
+<body data-page="home">
+<div class="app">
+
+  <div class="page-header">
+    <a class="back-btn" href="subject-practice.html" id="backBtn" aria-label="Back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div>
+      <div class="page-title">Chemistry CBT</div>
+      <div class="page-subtitle" id="pageSubtitle">Real JAMB Chemistry past questions</div>
+    </div>
+  </div>
+
+  <!-- ============ SETUP SCREEN ============ -->
+  <div id="screen-setup">
+
+    <div class="content-card" id="resumeCard" style="display:none;">
+      <div class="section-title">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#F0AC1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        Test in progress
+      </div>
+      <p style="font-size:13.5px;color:var(--navy-soft);margin-top:0;">You have an unfinished Chemistry CBT. Resume where you left off, or discard it and start a new one.</p>
+      <button class="btn-primary" id="resumeBtn">Resume Test</button>
+      <button class="btn-outline" id="discardBtn" style="margin-top:10px;border-color:#C0392B;color:#C0392B;">Discard &amp; Start New</button>
+    </div>
+
+    <div class="content-card" id="lastResultCard" style="display:none;">
+      <div class="section-title">Last Result</div>
+      <p id="lastResultText" style="font-size:13.5px;color:var(--navy-soft);margin-top:0;"></p>
+      <button class="btn-outline" id="viewLastResultBtn">View Last Result</button>
+    </div>
+
+    <div class="content-card">
+      <div class="setup-group">
+        <label class="setup-label">Number of Questions</label>
+        <div class="setup-hint" id="numQHint"></div>
+        <div class="option-grid" id="numQGrid"></div>
+      </div>
+
+      <div class="setup-group">
+        <label class="setup-label">Preferred Year</label>
+        <div class="setup-hint" id="yearHint"></div>
+        <div class="option-grid" id="yearGrid"></div>
+      </div>
+
+      <div class="setup-group">
+        <label class="setup-label">Test Duration</label>
+        <div class="setup-hint">Applies to CBT Test Mode. Normal Practice Mode is self-paced.</div>
+        <div class="option-grid" id="durationGrid"></div>
+      </div>
+
+      <div class="setup-group">
+        <label class="setup-label">Mode</label>
+        <div class="mode-card" id="modeNormal" data-mode="practice">
+          <h4>Normal Practice Mode</h4>
+          <p>Get instant feedback and explanations after every answer.</p>
+        </div>
+        <div class="mode-card" id="modeCbt" data-mode="cbt">
+          <h4>CBT Test Mode</h4>
+          <p>Take the test like a real exam. Answers and explanations are revealed after submission.</p>
+        </div>
+      </div>
+
+      <div class="setup-summary" id="setupSummary"></div>
+    </div>
+
+    <button class="btn-primary" id="startTestBtn" style="font-size:16px;padding:16px;">START TEST</button>
+  </div>
+
+  <!-- ============ TEST SCREEN ============ -->
+  <div id="screen-test" style="display:none;">
+
+    <div class="test-topbar">
+      <div class="test-title-block">
+        <div class="t-name">CHEMISTRY CBT</div>
+        <div class="t-progress" id="testProgressLabel">Question 1 of 30</div>
+      </div>
+      <div class="timer-badge" id="timerBadge">No Limit</div>
+    </div>
+
+    <div class="content-card">
+      <div id="questionMeta" style="font-size:12px;color:var(--navy-soft);font-weight:700;margin-bottom:6px;"></div>
+      <div id="questionText" style="font-size:15px;font-weight:700;color:var(--navy);line-height:1.5;margin-bottom:14px;"></div>
+      <div id="answerOptions"></div>
+      <div id="feedbackArea"></div>
+    </div>
+
+    <div class="content-card">
+      <div class="section-title" style="margin-bottom:10px;">Question Navigator</div>
+      <div class="qpalette" id="qPalette"></div>
+    </div>
+
+    <div class="test-nav-buttons">
+      <button class="btn-outline" id="prevBtn">PREVIOUS</button>
+      <button class="btn-outline" id="nextBtn">NEXT</button>
+    </div>
+    <button class="btn-primary" id="submitBtn" style="margin-top:12px;background:var(--navy);">SUBMIT TEST</button>
+  </div>
+
+  <!-- ============ RESULTS SCREEN ============ -->
+  <div id="screen-results" style="display:none;">
+
+    <div class="content-card">
+      <div class="section-title">CHEMISTRY CBT RESULT</div>
+      <div class="score-hero">
+        <div class="big" id="resultScore">0 / 0</div>
+        <div class="pct" id="resultPct">0%</div>
+      </div>
+      <div class="stat-grid">
+        <div class="stat-cell correct"><div class="n" id="statCorrect">0</div><div class="l">CORRECT</div></div>
+        <div class="stat-cell wrong"><div class="n" id="statWrong">0</div><div class="l">WRONG</div></div>
+        <div class="stat-cell unanswered"><div class="n" id="statUnanswered">0</div><div class="l">UNANSWERED</div></div>
+      </div>
+    </div>
+
+    <div class="content-card">
+      <div class="section-title">Test Details</div>
+      <div class="meta-row"><span>Total questions</span><strong id="metaTotal"></strong></div>
+      <div class="meta-row"><span>Selected year</span><strong id="metaYear"></strong></div>
+      <div class="meta-row"><span>Test mode</span><strong id="metaMode"></strong></div>
+      <div class="meta-row"><span>Time used</span><strong id="metaTimeUsed"></strong></div>
+      <div class="meta-row"><span>Time remaining</span><strong id="metaTimeRemaining"></strong></div>
+    </div>
+
+    <div class="content-card">
+      <div class="toggle-row">
+        <div class="option-chip selected" id="toggleWrongBtn">Questions You Got Wrong</div>
+        <div class="option-chip" id="toggleAllBtn">Review All Questions</div>
+      </div>
+      <div id="reviewList"></div>
+    </div>
+
+    <button class="btn-primary" id="newTestBtn">Start Another Test</button>
+    <a class="btn-outline" href="subject-practice.html" style="display:block;text-align:center;margin-top:10px;">Back to Subject Practice</a>
+  </div>
+
+</div>
+
+<nav class="bottom-nav">
+  <a class="nav-item" data-nav="home" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1V10"/></svg>
+    <span>Home</span>
+  </a>
+  <a class="nav-item" data-nav="analysis" href="analysis.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+    <span>Analysis</span>
+  </a>
+  <a class="nav-item" data-nav="chatbot" href="chatbot.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4"/><circle cx="9" cy="14" r="1.4" fill="currentColor" stroke="none"/><circle cx="15" cy="14" r="1.4" fill="currentColor" stroke="none"/><path d="M2 13v3M22 13v3"/></svg>
+    <span>Chatbot</span>
+  </a>
+  <a class="nav-item" data-nav="profile" href="profile.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg>
+    <span>Profile</span>
+  </a>
+</nav>
+
+<!-- Submit confirmation modal -->
+<div class="modal-overlay" id="submitModal">
+  <div class="modal-box">
+    <h2>Submit your test?</h2>
+    <p id="submitSummaryText"></p>
+    <button class="btn-primary" id="confirmSubmitBtn">Submit Test</button>
+    <button class="btn-outline modal-close" id="cancelSubmitBtn">Cancel</button>
+  </div>
+</div>
+
+<!-- Exit-in-progress warning modal -->
+<div class="modal-overlay" id="exitModal">
+  <div class="modal-box">
+    <h2>Your test is still in progress</h2>
+    <p>If you leave, your current test may be lost. It will stay saved on this device until you start a new one, but leaving now will exit the exam view.</p>
+    <button class="btn-outline modal-close" id="stayBtn">Stay</button>
+    <button class="btn-primary" id="leaveBtn" style="margin-top:10px;background:#C0392B;">Leave Test</button>
+  </div>
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="app.js"></script>
+<script src="chemistry-questions.js"></script>
+<script src="chemistry-cbt.js"></script>
+</body>
+</html>

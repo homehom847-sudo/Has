@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Profile — SUSU JAMB PREP</title>
+
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="profile.css">
+
+<style>
+
+/* ================================
+   PROFILE IMAGE
+================================ */
+
+.profile-avatar {
+  width: 118px;
+  height: 118px;
+  border-radius: 50%;
+  margin: 0 auto 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  overflow: hidden;
+
+  background: #e2f6eb;
+  border: 4px solid #bce8cd;
+
+  color: #15945c;
+}
+
+.profile-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.profile-avatar svg {
+  width: 55px;
+  height: 55px;
+}
+
+
+/* ================================
+   EDIT PROFILE BUTTON
+================================ */
+
+.edit-profile-btn {
+  margin-top: 14px;
+
+  border: 1.5px solid #1FA766;
+  background: white;
+  color: #1FA766;
+
+  border-radius: 10px;
+
+  padding: 9px 18px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.edit-profile-btn:hover {
+  background: #f0faf5;
+}
+
+
+/* ================================
+   EDIT PROFILE CARD
+================================ */
+
+#editProfileCard {
+  display: none;
+}
+
+.edit-profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.edit-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.edit-field label {
+  font-weight: 600;
+  color: #1B2A4A;
+}
+
+.edit-field input,
+.edit-field textarea {
+  width: 100%;
+  box-sizing: border-box;
+
+  padding: 12px 13px;
+
+  border: 1px solid #d8dce3;
+  border-radius: 10px;
+
+  background: #fff;
+
+  font-size: 15px;
+  font-family: inherit;
+
+  outline: none;
+}
+
+.edit-field input:focus,
+.edit-field textarea:focus {
+  border-color: #1FA766;
+  box-shadow: 0 0 0 3px rgba(31,167,102,.10);
+}
+
+.edit-field textarea {
+  resize: vertical;
+}
+
+.edit-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.save-profile-btn,
+.cancel-profile-btn {
+  flex: 1;
+
+  border-radius: 10px;
+
+  padding: 12px;
+
+  font-weight: 600;
+
+  cursor: pointer;
+}
+
+.save-profile-btn {
+  border: none;
+  background: #1FA766;
+  color: white;
+}
+
+.cancel-profile-btn {
+  border: 1px solid #d0d5dc;
+  background: white;
+  color: #1B2A4A;
+}
+
+.form-error {
+  color: #C0392B;
+  font-size: 14px;
+}
+
+.progress-help {
+  margin-top: 10px;
+
+  color: #68738a;
+
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+</style>
+
+</head>
+
+
+<body data-page="profile">
+
+<div class="app">
+
+
+  <!-- ==========================================
+       PAGE HEADER
+  =========================================== -->
+
+  <div class="page-header">
+
+    <a
+      class="back-btn"
+      href="index.html"
+      aria-label="Back"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#1B2A4A"
+        stroke-width="2.2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+
+    </a>
+
+    <div>
+      <div class="page-title">
+        Profile
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ==========================================
+       PROFILE HERO
+  =========================================== -->
+
+  <div class="profile-hero">
+
+    <!-- IMPORTANT:
+         profile.js looks for profileAvatar
+    -->
+
+    <div
+      class="avatar profile-avatar"
+      id="profileAvatar"
+    >
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+
+        <circle
+          cx="12"
+          cy="8"
+          r="4"
+        />
+
+        <path
+          d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"
+        />
+
+      </svg>
+
+    </div>
+
+
+    <!-- STUDENT NAME -->
+
+    <div
+      class="profile-name"
+      id="profName"
+    >
+      Student
+    </div>
+
+
+    <!-- COURSE / DESCRIPTION -->
+
+    <div
+      class="profile-sub"
+      id="profileSub"
+    >
+      SUSU JAMB PREP Student
+    </div>
+
+
+    <!-- EDIT PROFILE -->
+
+    <button
+      type="button"
+      class="edit-profile-btn"
+      id="editProfileBtn"
+    >
+      ✏️ Edit Profile
+    </button>
+
+  </div>
+
+
+
+  <!-- ==========================================
+       AIMED JAMB SCORE
+  =========================================== -->
+
+  <div class="content-card">
+
+    <div class="section-title">
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#EF7B4F"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+
+        <circle
+          cx="12"
+          cy="12"
+          r="9"
+        />
+
+        <circle
+          cx="12"
+          cy="12"
+          r="4.5"
+        />
+
+        <circle
+          cx="12"
+          cy="12"
+          r="1.2"
+          fill="#EF7B4F"
+        />
+
+      </svg>
+
+      Aimed JAMB Score
+
+    </div>
+
+
+    <div
+      class="score-big"
+      id="aimedScoreDisplay"
+    >
+      320
+    </div>
+
+  </div>
+
+
+
+  <!-- ==========================================
+       WHY I WANT TO SCORE HIGH
+  =========================================== -->
+
+  <div class="content-card">
+
+    <div class="section-title">
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#8B6EE0"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+
+        <path
+          d="M21 15a2 2 0 01-2 2H8l-5 4V5a2 2 0 012-2h14a2 2 0 012 2z"
+        />
+
+      </svg>
+
+      Why I Want to Score High
+
+    </div>
+
+
+    <div
+      class="quote-box"
+      id="whyText"
+    >
+      "Tell us what motivates you."
+    </div>
+
+  </div>
+
+
+
+  <!-- ==========================================
+       GOAL PROGRESS
+  =========================================== -->
+
+  <div class="content-card">
+
+    <div class="section-title">
+
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="#1FA766"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+
+        <path d="M4 20V10"/>
+        <path d="M10 20V4"/>
+        <path d="M16 20v-7"/>
+        <path d="M22 20H2"/>
+
+      </svg>
+
+      Goal Progress
+
+    </div>
+
+
+    <!-- SCORE + PERCENTAGE -->
+
+    <div class="progress-label">
+
+      <span id="scoreFraction">
+        0 / 320
+      </span>
+
+      <strong id="scorePct">
+        0%
+      </strong>
+
+    </div>
+
+
+    <!-- PROGRESS BAR -->
+
+    <div class="progress-track">
+
+      <div
+        class="progress-fill"
+        id="goalBar"
+        style="width:0%;"
+      ></div>
+
+    </div>
+
+
+    <!-- MESSAGE -->
+
+    <div
+      class="progress-help"
+      id="progressHelp"
+    >
+      Take a JAMB mock to update your current score.
+    </div>
+
+  </div>
+
+
+
+  <!-- ==========================================
+       EDIT PROFILE
+  =========================================== -->
+
+  <div
+    class="content-card"
+    id="editProfileCard"
+  >
+
+    <div class="page-header">
+
+      <button
+        type="button"
+        class="back-btn"
+        id="editBackBtn"
+        aria-label="Cancel and go back"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="#1B2A4A"
+          stroke-width="2.2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+
+      <div class="page-title">
+        Edit Profile
+      </div>
+
+    </div>
+
+
+    <form
+      class="edit-profile-form"
+      id="editProfileForm"
+    >
+
+
+      <!-- NAME -->
+
+      <div class="edit-field">
+
+        <label for="editName">
+          Full Name
+        </label>
+
+        <input
+          type="text"
+          id="editName"
+          maxlength="80"
+          required
+        >
+
+      </div>
+
+
+      <!-- TARGET SCORE -->
+
+      <div class="edit-field">
+
+        <label for="editScore">
+          JAMB Target Score
+        </label>
+
+        <input
+          type="number"
+          id="editScore"
+          min="0"
+          max="400"
+          step="1"
+          required
+        >
+
+      </div>
+
+
+      <!-- COURSE -->
+
+      <div class="edit-field">
+
+        <label for="editCourse">
+          Preferred Course
+        </label>
+
+        <input
+          type="text"
+          id="editCourse"
+          maxlength="80"
+          placeholder="e.g. Medicine"
+        >
+
+      </div>
+
+
+      <!-- INSTITUTION -->
+
+      <div class="edit-field">
+
+        <label for="editInstitution">
+          Preferred Institution
+        </label>
+
+        <input
+          type="text"
+          id="editInstitution"
+          maxlength="100"
+          placeholder="e.g. University of Nigeria"
+        >
+
+      </div>
+
+
+      <!-- MOTIVATION -->
+
+      <div class="edit-field">
+
+        <label for="editWhy">
+          Why do you want to score high?
+        </label>
+
+        <textarea
+          id="editWhy"
+          rows="4"
+          maxlength="300"
+          required
+        ></textarea>
+
+      </div>
+
+
+      <!-- PHOTO -->
+
+      <div class="edit-field">
+
+        <label for="editPhoto">
+          Change Profile Picture
+        </label>
+
+        <input
+          type="file"
+          id="editPhoto"
+          accept="image/*"
+        >
+
+      </div>
+
+
+      <!-- ERROR -->
+
+      <div
+        class="form-error"
+        id="editError"
+      ></div>
+
+
+      <!-- BUTTONS -->
+
+      <div class="edit-buttons">
+
+        <button
+          type="button"
+          class="cancel-profile-btn"
+          id="cancelEditBtn"
+        >
+          Cancel
+        </button>
+
+        <button
+          type="submit"
+          class="save-profile-btn"
+        >
+          Save Changes
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+
+
+  <!-- ==========================================
+       PRIVACY POLICY
+  =========================================== -->
+
+  <div class="content-card">
+
+    <div
+      class="list-row"
+      id="privacyLink"
+    >
+
+      <div>
+
+        <div class="label">
+          🔒 Privacy Policy
+        </div>
+
+        <div class="meta">
+          View Privacy Policy →
+        </div>
+
+      </div>
+
+
+      <svg
+        class="chev"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+
+        <path
+          d="M9 6l6 6-6 6"
+        />
+
+      </svg>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- ==========================================
+       LOG OUT
+  =========================================== -->
+
+  <div class="content-card">
+
+    <button
+      class="btn-outline"
+      id="logoutBtn"
+      style="
+        border-color:#C0392B;
+        color:#C0392B;
+        width:100%;
+      "
+    >
+      🚪 Log Out
+    </button>
+
+  </div>
+
+
+</div>
+
+
+
+<!-- ==========================================
+     BOTTOM NAVIGATION
+=========================================== -->
+
+<nav class="bottom-nav">
+
+
+  <!-- HOME -->
+
+  <a
+    class="nav-item"
+    data-nav="home"
+    href="index.html"
+  >
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+
+      <path d="M3 11l9-8 9 8"/>
+
+      <path
+        d="M5 10v10a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1V10"
+      />
+
+    </svg>
+
+    <span>Home</span>
+
+  </a>
+
+
+
+  <!-- ANALYSIS -->
+
+  <a
+    class="nav-item"
+    data-nav="analysis"
+    href="analysis.html"
+  >
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+
+      <path d="M4 20V10"/>
+      <path d="M10 20V4"/>
+      <path d="M16 20v-7"/>
+      <path d="M22 20H2"/>
+
+    </svg>
+
+    <span>Analysis</span>
+
+  </a>
+
+
+
+  <!-- CHATBOT -->
+
+  <a
+    class="nav-item"
+    data-nav="chatbot"
+    href="chatbot.html"
+  >
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+
+      <rect
+        x="4"
+        y="8"
+        width="16"
+        height="12"
+        rx="3"
+      />
+
+      <path d="M12 8V4"/>
+
+      <circle
+        cx="9"
+        cy="14"
+        r="1.4"
+        fill="currentColor"
+        stroke="none"
+      />
+
+      <circle
+        cx="15"
+        cy="14"
+        r="1.4"
+        fill="currentColor"
+        stroke="none"
+      />
+
+      <path d="M2 13v3"/>
+      <path d="M22 13v3"/>
+
+    </svg>
+
+    <span>Chatbot</span>
+
+  </a>
+
+
+
+  <!-- PROFILE -->
+
+  <a
+    class="nav-item"
+    data-nav="profile"
+    href="profile.html"
+  >
+
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+
+      <circle
+        cx="12"
+        cy="8"
+        r="4"
+      />
+
+      <path
+        d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"
+      />
+
+    </svg>
+
+    <span>Profile</span>
+
+  </a>
+
+</nav>
+
+
+
+<!-- ==========================================
+     JAVASCRIPT
+=========================================== -->
+
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="app.js"></script>
+<script src="profile.js"></script>
+
+</body>
+</html>

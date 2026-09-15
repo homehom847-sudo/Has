@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SUSU JAMB PREP</title>
+<link rel="stylesheet" href="base.css">
+<link rel="stylesheet" href="dashboard.css">
+</head>
+<body data-page="home">
+
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="susu">SUSU</span><span class="jamb">JAMB</span><span class="prep">PREP</span>
+    </div>
+    <div class="streak-chip" title="Daily streak">
+      <span class="streak-chip-icon">
+        <svg viewBox="0 0 24 24" fill="#fff" stroke="#fff"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+      </span>
+      <span class="streak-chip-count" id="streakCount">0</span>
+    </div>
+  </header>
+
+  <main class="grid">
+
+    <a class="card blue" href="subject-practice.html">
+      <span class="ribbon"></span>
+      <span class="icon-circle">
+        <svg viewBox="0 0 48 48" fill="none">
+          <path d="M6 11c6-4 13-4 17 1v26c-4-5-11-5-17-1V11z" fill="#FFFFFF" stroke="#2E6DA4" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M42 11c-6-4-13-4-17 1v26c4-5 11-5 17-1V11z" fill="#FFFFFF" stroke="#2E6DA4" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M11 16h8M11 21h8M29 16h8M29 21h8" stroke="#BFDEF7" stroke-width="2" stroke-linecap="round"/>
+          <rect x="4" y="34" width="6" height="5" rx="1.5" fill="#EFAE1F"/>
+          <rect x="38" y="34" width="6" height="5" rx="1.5" fill="#EFAE1F"/>
+        </svg>
+      </span>
+      <h3>Subject Practice</h3>
+      <p>All Subjects</p>
+    </a>
+
+    <a class="card purple" href="cbt-test.html">
+      <span class="ribbon"></span>
+      <span class="icon-circle">
+        <svg viewBox="0 0 48 48" fill="none">
+          <path d="M11 6h20l6 6v30a2 2 0 01-2 2H11a2 2 0 01-2-2V8a2 2 0 012-2z" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M31 6v6h6" fill="none" stroke="#1B2A4A" stroke-width="2.2" stroke-linejoin="round"/>
+          <path d="M14 20h12M14 26h8" stroke="#D3C6F5" stroke-width="2.4" stroke-linecap="round"/>
+          <path d="M17 33l14-14 4 4-14 14h-4v-4z" fill="#1FA766" stroke="#0E8250" stroke-width="1.6" stroke-linejoin="round"/>
+        </svg>
+      </span>
+      <h3>JAMB CBT Test</h3>
+      <p>By Year / Random Selection</p>
+    </a>
+
+    <a class="card mint" href="study-materials.html">
+      <span class="ribbon"></span>
+      <span class="icon-circle">
+        <svg viewBox="0 0 48 48" fill="none">
+          <rect x="8" y="14" width="8" height="24" rx="1.5" fill="#1FA766"/>
+          <rect x="18" y="10" width="8" height="28" rx="1.5" fill="#FFFFFF" stroke="#1B2A4A" stroke-width="2"/>
+          <rect x="28" y="16" width="8" height="22" rx="1.5" fill="#EF7B4F"/>
+          <rect x="6" y="36" width="34" height="4" rx="1.5" fill="#F0AC1B"/>
+        </svg>
+      </span>
+      <h3>Study Materials</h3>
+      <p>Notes &amp; Quick Prep</p>
+    </a>
+
+    <a class="card peach" href="weak-areas.html">
+      <span class="ribbon"></span>
+      <span class="icon-circle">
+        <svg viewBox="0 0 48 48" fill="none">
+          <circle cx="24" cy="24" r="17" fill="#FFFFFF" stroke="#1FA766" stroke-width="3.4"/>
+          <circle cx="24" cy="24" r="10.5" fill="#FFFFFF" stroke="#1FA766" stroke-width="3.2"/>
+          <circle cx="24" cy="24" r="4" fill="#1FA766"/>
+          <path d="M34 10L24 24" stroke="#EF7B4F" stroke-width="2.6" stroke-linecap="round"/>
+          <path d="M34 10l-2 7-5 1 7-8z" fill="#EF7B4F"/>
+        </svg>
+      </span>
+      <h3>Weak Areas</h3>
+      <p>Improvement Tracking</p>
+    </a>
+
+    <a class="card yellow" href="daily-challenge.html">
+      <span class="ribbon"></span>
+      <span class="icon-circle">
+        <svg viewBox="0 0 48 48" fill="none">
+          <path d="M14 40c-2-8 0-14 4-18-2-6 1-11 6-13 1 4 0 6-1 8 4-2 8-1 10 3 3 5 1 12-4 16-5 4-11 5-15 4z" fill="#1FA766" stroke="#0E8250" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M18 26c3 2 8 2 12-2" stroke="#EAF8EF" stroke-width="2" stroke-linecap="round" fill="none"/>
+          <path d="M8 12l3 2-1 3" stroke="#F0AC1B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+        </svg>
+      </span>
+      <h3>Daily Challenge</h3>
+      <p>Answer 10 questions</p>
+      <div class="xp">+100 XP</div>
+    </a>
+
+    <div class="card span-empty" aria-hidden="true"></div>
+
+  </main>
+</div>
+
+<nav class="bottom-nav">
+  <a class="nav-item" data-nav="home" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1V10"/></svg>
+    <span>Home</span>
+  </a>
+  <a class="nav-item" data-nav="analysis" href="analysis.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+    <span>Analysis</span>
+  </a>
+  <a class="nav-item" data-nav="chatbot" href="chatbot.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4"/><circle cx="9" cy="14" r="1.4" fill="currentColor" stroke="none"/><circle cx="15" cy="14" r="1.4" fill="currentColor" stroke="none"/><path d="M2 13v3M22 13v3"/></svg>
+    <span>Chatbot</span>
+  </a>
+  <a class="nav-item" data-nav="profile" href="profile.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg>
+    <span>Profile</span>
+  </a>
+</nav>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

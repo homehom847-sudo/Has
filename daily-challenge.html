@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Challenge — SUSU JAMB PREP</title>
+<link rel="stylesheet" href="base.css">
+</head>
+<body data-page="home">
+<div class="app">
+
+  <div class="page-header">
+    <a class="back-btn" href="index.html" aria-label="Back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div>
+      <div class="page-title">Daily Challenge</div>
+      <div class="page-subtitle">Answer 10 questions</div>
+    </div>
+  </div>
+
+  <div class="content-card" id="introCard">
+    <div class="section-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1FA766" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" fill="#1FA766" stroke="#0E8250"/></svg>
+      Today's Challenge
+    </div>
+    <p style="font-size:13.5px;color:var(--navy-soft);margin-top:0;">10 mixed questions from your subjects. Finish it to earn <strong style="color:var(--gold);">+100 XP</strong> and keep your streak alive.</p>
+    <button class="btn-primary" id="startBtn">Start Challenge</button>
+  </div>
+
+  <div class="content-card" id="challengeArea" style="display:none;">
+    <div class="progress-label">
+      <span>Question <span id="cNum">1</span> / 10</span>
+      <span>XP: <strong id="cXp">0</strong> / 100</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="cBar" style="width:0%;"></div></div>
+    <p id="cQ" style="font-weight:700;font-size:14.5px;margin-top:14px;"></p>
+    <div id="cOptions"></div>
+  </div>
+
+  <div class="content-card" id="doneCard" style="display:none;">
+    <div class="section-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1FA766" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>
+      Challenge Complete
+    </div>
+    <p style="font-size:14px;">You scored <strong id="finalScore"></strong> and earned <strong style="color:var(--gold);">+100 XP</strong>. Your streak is now <strong id="finalStreak"></strong> days.</p>
+    <a class="btn-primary" href="index.html">Back to Home</a>
+  </div>
+
+</div>
+
+<nav class="bottom-nav">
+  <a class="nav-item" data-nav="home" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1V10"/></svg>
+    <span>Home</span>
+  </a>
+  <a class="nav-item" data-nav="analysis" href="analysis.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+    <span>Analysis</span>
+  </a>
+  <a class="nav-item" data-nav="chatbot" href="chatbot.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4"/><circle cx="9" cy="14" r="1.4" fill="currentColor" stroke="none"/><circle cx="15" cy="14" r="1.4" fill="currentColor" stroke="none"/><path d="M2 13v3M22 13v3"/></svg>
+    <span>Chatbot</span>
+  </a>
+  <a class="nav-item" data-nav="profile" href="profile.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg>
+    <span>Profile</span>
+  </a>
+</nav>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="app.js"></script>
+<script src="daily-challenge.js"></script>
+</body>
+</html>

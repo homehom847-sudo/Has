@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Study Materials — SUSU JAMB PREP</title>
+<link rel="stylesheet" href="base.css">
+</head>
+<body data-page="home">
+<div class="app">
+
+  <div class="page-header">
+    <a class="back-btn" href="index.html" aria-label="Back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1B2A4A" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+    </a>
+    <div>
+      <div class="page-title">Study Materials</div>
+      <div class="page-subtitle">Notes &amp; Quick Prep</div>
+    </div>
+  </div>
+
+  <div class="content-card">
+    <div class="section-title">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#1FA766" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+      Quick Notes
+    </div>
+    <div class="list-row" data-note="alg">
+      <div><div class="label">Algebra Cheat Sheet</div><div class="meta">Mathematics · 4 pages</div></div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </div>
+    <div class="list-row" data-note="grammar">
+      <div><div class="label">English Grammar Essentials</div><div class="meta">English Language · 6 pages</div></div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </div>
+    <div class="list-row" data-note="organic">
+      <div><div class="label">Organic Chemistry Basics</div><div class="meta">Chemistry · 5 pages</div></div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </div>
+    <div class="list-row" data-note="mechanics">
+      <div><div class="label">Mechanics Formulas</div><div class="meta">Physics · 3 pages</div></div>
+      <svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+    </div>
+  </div>
+
+  <div class="content-card" id="noteViewer" style="display:none;">
+    <div class="section-title" id="noteTitle">Note</div>
+    <p id="noteBody" style="font-size:13.5px;color:var(--navy-soft);line-height:1.6;"></p>
+  </div>
+
+</div>
+
+<nav class="bottom-nav">
+  <a class="nav-item" data-nav="home" href="index.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10a1 1 0 001 1h4v-6h4v6h4a1 1 0 001-1V10"/></svg>
+    <span>Home</span>
+  </a>
+  <a class="nav-item" data-nav="analysis" href="analysis.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+    <span>Analysis</span>
+  </a>
+  <a class="nav-item" data-nav="chatbot" href="chatbot.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4"/><circle cx="9" cy="14" r="1.4" fill="currentColor" stroke="none"/><circle cx="15" cy="14" r="1.4" fill="currentColor" stroke="none"/><path d="M2 13v3M22 13v3"/></svg>
+    <span>Chatbot</span>
+  </a>
+  <a class="nav-item" data-nav="profile" href="profile.html">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg>
+    <span>Profile</span>
+  </a>
+</nav>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script src="firebase-config.js"></script>
+<script src="app.js"></script>
+<script src="study-materials.js"></script>
+</body>
+</html>
